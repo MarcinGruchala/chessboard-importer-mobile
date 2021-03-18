@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">chessboard-importer</string>
+    <string name="btnSend">Send Photo</string>
+    <string name="btnTakePhoto">Take Photo</string>
+    <string name="btnImportFromGallery">Import Photo</string>
+    <string name="FENTag">Forsyth-Edwards Notation:</string>
+    <string name="FENSample">rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1</string>
+    <string name="appTitle">CHESSBOARD IMPORTER</string>
+    <string name="ivLogoDescription">Logo</string>
+    <string name="btnGoBack">Go Back</string>
+    <string name="btnAccept">Accept</string>
+    <string name="ivPhotoDescription">Photo preview</string>
 </resources>
