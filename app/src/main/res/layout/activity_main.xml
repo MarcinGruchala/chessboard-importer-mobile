@@ -9,8 +9,12 @@
 
     <Button
         android:id="@+id/btnTakePhoto"
-        android:layout_width="182dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="24dp"
         android:drawableBottom="@mipmap/ic_take_photo"
         android:text="@string/btnTakePhoto"
@@ -23,8 +27,12 @@
 
     <Button
         android:id="@+id/btnImportPhoto"
-        android:layout_width="182dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="24dp"
         android:drawableBottom="@mipmap/ic_import_photo"
         android:text="@string/btnImportFromGallery"

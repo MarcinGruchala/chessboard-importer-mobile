@@ -1,5 +1,6 @@
 package com.example.chessboard_importer
 
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.chessboard_importer.databinding.ActivityPhotoPreviewBinding
@@ -11,6 +12,8 @@ class PhotoPreviewActivity : AppCompatActivity() {
         binding = ActivityPhotoPreviewBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.ivPhoto.setImageBitmap(BitmapFactory.decodeFile(photoFile.absolutePath))
 
         binding.btnGoBack.setOnClickListener {
             finish()
