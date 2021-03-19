@@ -13,7 +13,7 @@ class PhotoPreviewActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.ivPhoto.setImageBitmap(BitmapFactory.decodeFile(photoFile.absolutePath))
+        binding.ivPhoto.setImageBitmap(photoBitmap)
 
         binding.btnGoBack.setOnClickListener {
             finish()
