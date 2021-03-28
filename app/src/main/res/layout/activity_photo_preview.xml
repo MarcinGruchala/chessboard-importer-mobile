@@ -9,7 +9,6 @@
 
     <Button
         android:id="@+id/btnGoBack"
-        android:drawableBottom="@mipmap/ic_arrow_back"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -17,6 +16,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="24dp"
+        android:drawableBottom="@mipmap/ic_arrow_back"
         android:text="@string/btnGoBack"
         android:textColor="@color/lightBrown"
         app:backgroundTint="@color/darkBrown"
@@ -27,7 +27,6 @@
 
     <Button
         android:id="@+id/btnAccept"
-        android:drawableBottom="@mipmap/ic_accept"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -35,6 +34,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="24dp"
+        android:drawableBottom="@mipmap/ic_accept"
         android:text="@string/btnAccept"
         android:textColor="@color/lightBrown"
         app:backgroundTint="@color/darkBrown"
@@ -45,17 +45,35 @@
 
     <ImageView
         android:id="@+id/ivPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="24dp"
         android:contentDescription="@string/ivPhotoDescription"
+        app:layout_constraintBottom_toTopOf="@+id/tvResponse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/lightBrown" />
+
+
+    <TextView
+        android:id="@+id/tvResponse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text=""
+        android:textSize="30sp"
+        android:textColor="@color/darkBrown"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
