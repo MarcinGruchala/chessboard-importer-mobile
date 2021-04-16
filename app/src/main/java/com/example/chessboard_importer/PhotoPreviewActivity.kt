@@ -41,8 +41,8 @@ class PhotoPreviewActivity : AppCompatActivity() {
     private fun getAccessToken(){
 
         val jsonData = HashMap<String,String>()
-        jsonData["username"] = "chessuser"
-        jsonData["password"] = "magnusgruchala"
+        jsonData["username"] = com.example.chessboard_importer.BuildConfig.APIUSERNAME
+        jsonData["password"] =  com.example.chessboard_importer.BuildConfig.APIPASSWORD
         val jsonRequest = JSONObject(jsonData as Map<String,String>)
         val accessTokenRequest = object : JsonObjectRequest(Request.Method.POST,urlLogin,jsonRequest,
                 Response.Listener {

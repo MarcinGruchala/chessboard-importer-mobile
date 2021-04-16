@@ -18,6 +18,8 @@ before_script:
   - set +o pipefail
   - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
   - set -o pipefail
+  - cp example.apipassword.properties apipassword.properties
+
 
 stages:
   - verify
