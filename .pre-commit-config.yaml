@@ -14,16 +14,7 @@ repos:
     rev: '2.1.4'
     hooks:
       - id: script-must-have-extension
-  - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.9
-    hooks:
-      - id: forbid-tabs
   - repo: https://github.com/gruntwork-io/pre-commit
     rev: v0.1.12
     hooks:
       - id: shellcheck
-  - repo: https://github.com/markdownlint/markdownlint
-    rev: v0.11.0
-    hooks:
-      - id: markdownlint
-        args: ['-r ~MD029,~MD013']
