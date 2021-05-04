@@ -3,14 +3,11 @@ package com.example.chessboard_importer
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
-import androidx.core.content.FileProvider
 import com.example.chessboard_importer.databinding.ActivityMainBinding
 import java.io.File
 
@@ -30,11 +27,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnTakePhoto.setOnClickListener {
-            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            photoFile = getPhotoFile(FILE_NAME)
-            val fileProvider  = FileProvider.getUriForFile(this,"com.example.provider.fileprovider", photoFile)
-            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,fileProvider)
-            startActivityForResult(takePictureIntent, TAKE_PHOTO_REQUEST_CODE)
+//            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+//            photoFile = getPhotoFile(FILE_NAME)
+//            val fileProvider  = FileProvider.getUriForFile(this,"com.example.provider.fileprovider", photoFile)
+//            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,fileProvider)
+//            startActivityForResult(takePictureIntent, TAKE_PHOTO_REQUEST_CODE)
+            Intent(this,CameraActivity::class.java).also {
+                startActivity(it)
+            }
+
         }
 
         binding.btnImportPhoto.setOnClickListener {
@@ -46,11 +47,11 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == TAKE_PHOTO_REQUEST_CODE && resultCode== Activity.RESULT_OK){
-            createPhotoData(Uri.fromFile(photoFile))
-            photoBitmap = BitmapFactory.decodeFile(photoFile.absolutePath)
-            Intent(this, PhotoPreviewActivity::class.java ).also {
-                startActivity(it)
-            }
+//            createPhotoData(Uri.fromFile(photoFile))
+//            photoBitmap = BitmapFactory.decodeFile(photoFile.absolutePath)
+//            Intent(this, PhotoPreviewActivity::class.java ).also {
+//                startActivity(it)
+//            }
         }else if (requestCode == IMPORT_PICTURE_REQUEST_CODE && resultCode == Activity.RESULT_OK){
             val photoUri: Uri? = data?.data
 
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 createPhotoData(photoUri)
 
             photoBitmap = MediaStore.Images.Media.getBitmap(this.contentResolver,photoUri)
-            Intent(this, PhotoPreviewActivity::class.java ).also {
+            Intent(this, TMPActivity::class.java ).also {
                 startActivity(it)
             }
         }
