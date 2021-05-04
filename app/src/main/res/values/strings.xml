@@ -10,4 +10,5 @@
     <string name="btnGoBack">Go Back</string>
     <string name="btnAccept">Accept</string>
     <string name="ivPhotoDescription">Photo preview</string>
+    <string name="tvPhotoGuideline">FIT CHESSBOARD IN FRAME</string>
 </resources>
