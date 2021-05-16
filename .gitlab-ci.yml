@@ -19,7 +19,6 @@ before_script:
   - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
   - set -o pipefail
   - cp example.apipassword.properties apipassword.properties
-  - cp example.urladdresses.properties urladdresses.properties
 
 
 stages:
