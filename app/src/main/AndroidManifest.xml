@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.chessboard_importer">
 
     <uses-feature android:name="android.hardware.camera.any" />
@@ -9,39 +10,36 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Chessboardimporter"
-        android:largeHeap="true">
-        <activity android:name=".PhotoPreviewActivity">
+        tools:targetApi="n">
 
-        </activity>
-        <activity
-            android:name=".CameraActivity"
+    <activity
+            android:name=".views.ChessboardActivity"
             android:screenOrientation="portrait">
-
-        </activity>
-        <activity android:name=".TMPActivity">
-
-        </activity>
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.provider.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
             <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_provider">
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.HomeActivity">
 
             </meta-data>
-        </provider>
+        </activity>
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".views.camera_module.PhotoPreviewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".views.camera_module.CameraActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".views.HomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

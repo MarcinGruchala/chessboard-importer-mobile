@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".PhotoPreviewActivity">
+    tools:context=".views.camera_module.PhotoPreviewActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -29,7 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:srcCompat="?attr/selectableItemBackground" />
+        app:srcCompat="?attr/selectableItemBackground"
+        android:contentDescription="@string/photoPreview" />
 
     <ImageButton
         android:id="@+id/btnAcceptPhoto"
@@ -42,7 +43,8 @@
         app:layout_constraintStart_toEndOf="@+id/btnRetakePhoto"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintVertical_bias="0.578"
-        app:srcCompat="@drawable/ic_accept_foreground" />
+        app:srcCompat="@drawable/ic_accept_foreground"
+        android:contentDescription="@string/btnAcceptPhoto" />
 
     <ImageButton
         android:id="@+id/btnRetakePhoto"
@@ -54,5 +56,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:srcCompat="@drawable/ic_arrow_back_foreground" />
+        app:srcCompat="@drawable/ic_arrow_back_foreground"
+        android:contentDescription="@string/btnRetakePhoto" />
 </androidx.constraintlayout.widget.ConstraintLayout>

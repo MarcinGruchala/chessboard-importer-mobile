@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightBrown"
+    tools:context=".views.ChessboardActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8522572" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/darkBrown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <ImageButton
+            android:id="@+id/btnCopyFEN"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/darkBrown"
+            android:drawableBottom="@mipmap/ic_copy_big_light"
+            android:src="@drawable/ic_copy_big_light_foreground"
+            android:text="@string/copyFEN"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnConnect"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnGoHome"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/btnCopyFEN" />
+
+        <ImageButton
+            android:id="@+id/btnGoHome"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/darkBrown"
+            android:drawableBottom="@mipmap/ic_home_big_light"
+            android:src="@drawable/ic_home_big_light_foreground"
+            android:text="@string/goHome"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnCopyFEN"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/btnGoHome" />
+
+        <ImageButton
+            android:id="@+id/btnConnect"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/darkBrown"
+            android:drawableBottom="@mipmap/ic_connect_big_light"
+            android:src="@drawable/ic_connect_big_light_foreground"
+            android:text="@string/connectFEN"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnCopyFEN"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/btnConnect" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <no.bakkenbaeck.chessboardeditor.view.board.ChessBoardView
+            android:id="@+id/chessBoard"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:collapseColumns="@string/FENSample"
+            android:keepScreenOn="true"
+            android:longClickable="false"
+            android:touchscreenBlocksFocus="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".CameraActivity">
+    tools:context=".views.camera_module.CameraActivity">
 
     <ImageButton
         android:id="@+id/cameraCaptureButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="?selectableItemBackgroundBorderless"
-        android:contentDescription="take picture button"
+        android:contentDescription="@string/takePictureButton"
         android:elevation="2dp"
         android:src="@drawable/ic_big_take_picture__foreground"
         android:tint="@color/lightBrown"
@@ -34,7 +34,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:contentDescription="canvas drawing"
+        android:contentDescription="@string/canvasDrawing"
         app:layout_constraintBottom_toTopOf="@+id/cameraCaptureButton"
         app:layout_constraintEnd_toEndOf="@+id/viewFinder"
         app:layout_constraintStart_toStartOf="@+id/viewFinder"

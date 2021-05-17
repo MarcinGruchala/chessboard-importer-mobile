@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="boardCellLight">#f0d9b5</color>
+    <color name="boardCellDark">#b58863</color>
+    <color name="boardCellSide">#b58863</color>
+</resources>
