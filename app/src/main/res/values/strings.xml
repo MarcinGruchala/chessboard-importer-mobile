@@ -11,4 +11,17 @@
     <string name="btnAccept">Accept</string>
     <string name="ivPhotoDescription">Photo preview</string>
     <string name="tvPhotoGuideline">FIT CHESSBOARD IN FRAME</string>
+    <string name="goHome">Go Home</string>
+    <string name="copyFEN">Copy FEN</string>
+    <string name="connectFEN">Connect</string>
+    <string name="btnCopyFEN">copy fen to clipboard</string>
+    <string name="btnGoHome">go to home activity</string>
+    <string name="btnConnect">connect app to chess engine</string>
+    <string name="btnChessboard">go to chessboard activity</string>
+    <string name="takePictureButton">take picture button</string>
+    <string name="canvasDrawing">canvas drawing</string>
+    <string name="btnRetakePhoto">retake photo</string>
+    <string name="photoPreview">Photo preview</string>
+    <string name="btnAcceptPhoto">accept photo</string>
+
 </resources>

@@ -1,2 +1,3 @@
+include ':chessboardeditor'
 include ':app'
 rootProject.name = "chessboard-importer"
