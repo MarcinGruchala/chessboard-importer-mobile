@@ -59,7 +59,7 @@ assembleDebug:
     - ./gradlew assembleDebug
   artifacts:
     paths:
-    - app/build/outputs/apk/debug/
+      - app/build/outputs/
   tags:
     - docker
   only:
