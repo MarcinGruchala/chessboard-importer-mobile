@@ -1,6 +1,22 @@
-# chessboard-importer-mobile
+# ♛ ChessBoard Importer Frontend ♛
 
-Android application for Chessboard Importer
+Repository for the frontend part of project "Chessboard Importer". The project is realized by the team of 4 students of Control Engineering and Robotics on specialization Information Technologies in Control Engineering as part of the Team Project Conference on Faculty of Electronics for the Company NetworkedAssets. To read more about the backend part of the project visit the wiki page of the [backend application repository](https://gitlab.com/kpz-2021-chessboard-importer-team/chessboard-importer-backend). For more information visit the [wiki page](https://gitlab.com/kpz-2021-chessboard-importer-team/chessboard-importer-mobile/-/wikis/home)
+
+## Authors
+
+- Piotr Kowalski - Team leader
+- Piotr Bednarek - Machine learning
+- Kajetan Zdanowicz - DevOps
+- Adam Bednorz - API, improving chess recognition
+- Marcin Gruchała - Mobile application
+
+## Demo
+
+<img src="demo.gif" width="300">
+
+## [Download APK file](chessboard-importer-1.0.apk)
+
+If apk file will download as zip file, rename .zip file to .apk file.
 
 ## Build APK from command line
 
