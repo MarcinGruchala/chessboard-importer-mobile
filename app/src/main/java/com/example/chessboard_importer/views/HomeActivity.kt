@@ -2,7 +2,6 @@ package com.example.chessboard_importer.views
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -13,9 +12,6 @@ import com.example.chessboard_importer.databinding.ActivityHomeBinding
 import com.example.chessboard_importer.viewmodels.HomeActivityViewModel
 import com.example.chessboard_importer.views.camera_module.CameraActivity
 
-
-lateinit var photoBitmap: Bitmap
-
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val viewModel: HomeActivityViewModel by viewModels()
@@ -23,8 +19,8 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
+
         viewModel.getAccessToken()
         val imageUriObserver = Observer<Uri?> { newUri -> viewModel.createPhotoData(newUri!!) }
         viewModel.importedImageUri.observe(this,imageUriObserver)
