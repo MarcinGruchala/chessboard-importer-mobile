@@ -2,15 +2,38 @@
     <!-- Base application theme. -->
     <style name="Theme.Chessboardimporter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/lightBrown</item>
+        <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/darkBrown</item>
-        <item name="colorOnPrimary">@color/lightBrown</item>
+        <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondaryVariant">@color/darkBrown</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.App" parent="Theme.MaterialComponents">
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/lightBrown</item>
+        <item name="colorPrimary">@color/darkBrown</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/darkBrown</item>
+        <item name="colorSurface">@color/darkBrown</item>
+        <item name="colorOnSurface">@color/darkBrown</item>
+        <item name="colorPrimaryVariant">@color/darkBrown</item>
+        <item name="colorSecondaryVariant">@color/darkBrown</item>
+        <item name="buttonBarButtonStyle">@color/darkBrown</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
+    </style>
+
+
 </resources>

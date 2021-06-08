@@ -1,12 +1,12 @@
 package com.example.chessboard_importer.viewmodels
 
 import android.app.Application
-import android.content.Context
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.chessboard_importer.repository.ApplicationRepository
+import com.example.chessboard_importer.webservices.WebServices
 
 class HomeActivityViewModel(application: Application) : AndroidViewModel(application) {
     private val contentResolver by lazy { application.contentResolver }
@@ -19,9 +19,10 @@ class HomeActivityViewModel(application: Application) : AndroidViewModel(applica
         inputStream?.buffered()?.use {
             ApplicationRepository.photoData.value = it.readBytes()
         }
+        ApplicationRepository.newPhotoData = true
     }
 
     fun getAccessToken(){
-        ApplicationRepository.getAccessToken(applicationContext)
+        WebServices.getAccessToken(applicationContext)
     }
 }
