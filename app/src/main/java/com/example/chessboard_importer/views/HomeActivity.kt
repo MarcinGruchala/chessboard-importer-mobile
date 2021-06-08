@@ -8,9 +8,13 @@ import android.provider.MediaStore
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.example.chessboard_importer.R
 import com.example.chessboard_importer.databinding.ActivityHomeBinding
 import com.example.chessboard_importer.viewmodels.HomeActivityViewModel
 import com.example.chessboard_importer.views.camera_module.CameraActivity
+
+import com.example.chessboard_importer.webservices.WebServicesErrorStatus
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -22,8 +26,16 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.getAccessToken()
+
         val imageUriObserver = Observer<Uri?> { newUri -> viewModel.createPhotoData(newUri!!) }
         viewModel.importedImageUri.observe(this,imageUriObserver)
+
+        val apiConnectionObserver = Observer<WebServicesErrorStatus> { errorStatus ->
+            if (errorStatus ==  WebServicesErrorStatus.CONNECTIONERROR){
+                showApiConnectionErrorDialogWindow()
+            }
+        }
+        viewModel.apiConnectionErrorStatus.observe(this,apiConnectionObserver)
 
         setUpClickListeners()
     }
@@ -56,6 +68,16 @@ class HomeActivity : AppCompatActivity() {
             }
             Intent(this, ChessboardActivity::class.java).also { startActivity(it) }
         }
+    }
+
+    private fun showApiConnectionErrorDialogWindow(){
+        val errorMessageDialog = MaterialAlertDialogBuilder(
+            this,
+            R.style.ThemeOverlay_App_MaterialAlertDialog
+        )
+            .setTitle(R.string.ErrorMessageTitle)
+            .setMessage(R.string.ErrorMessageApiConnection)
+        errorMessageDialog.show()
     }
 
     companion object {

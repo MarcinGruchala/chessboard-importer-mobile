@@ -20,44 +20,48 @@
         android:background="@color/darkBrown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
             android:id="@+id/btnCopyFEN"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:backgroundTint="@color/darkBrown"
+            android:contentDescription="@string/btnCopyFEN"
             android:drawableBottom="@mipmap/ic_copy_big_light"
             android:src="@drawable/ic_copy_big_light_foreground"
             android:text="@string/copyFEN"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnConnect"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btnGoHome"
+            app:layout_constraintStart_toEndOf="@+id/btnPlayerChoice"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/btnCopyFEN" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageButton
             android:id="@+id/btnGoHome"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:backgroundTint="@color/darkBrown"
+            android:contentDescription="@string/btnGoHome"
             android:drawableBottom="@mipmap/ic_home_big_light"
             android:src="@drawable/ic_home_big_light_foreground"
             android:text="@string/goHome"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnCopyFEN"
+            app:layout_constraintEnd_toStartOf="@+id/btnPlayerChoice"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/btnGoHome" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/btnConnect"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:backgroundTint="@color/darkBrown"
+            android:contentDescription="@string/btnConnect"
             android:drawableBottom="@mipmap/ic_connect_big_light"
             android:src="@drawable/ic_connect_big_light_foreground"
             android:text="@string/connectFEN"
@@ -65,8 +69,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btnCopyFEN"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnPlayerChoice"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/darkBrown"
+            android:contentDescription="@string/btnPlayerChoice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnCopyFEN"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnGoHome"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/btnConnect" />
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_player_choice_foreground" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

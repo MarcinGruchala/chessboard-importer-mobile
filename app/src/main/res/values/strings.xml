@@ -23,5 +23,10 @@
     <string name="btnRetakePhoto">retake photo</string>
     <string name="photoPreview">Photo preview</string>
     <string name="btnAcceptPhoto">accept photo</string>
-
+    <string name="ProgressBarText">Image is uploading and processing, it may take a moment.</string>
+    <string name="btnPlayerChoice">Player choice button</string>
+    <string name="ErrorMessageApiConnection">Application isn\'t connected to our server, you won\'t be able to upload photos but you will be able to use other functions of application. We are sorry for your trouble.</string>
+    <string name="ErrorMessageTitle">Error message</string>
+    <string name="ErrorMessagePhotoError">Image isn\'t taken properly please retake photo or import another image.</string>
+    <string name="ErrorMessageTimeoutError">Image processing took too much time.</string>
 </resources>

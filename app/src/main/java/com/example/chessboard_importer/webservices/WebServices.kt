@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.android.volley.Response
 import com.android.volley.RetryPolicy
+import com.android.volley.TimeoutError
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.example.chessboard_importer.BuildConfig
@@ -17,6 +18,10 @@ object WebServices {
 
     var tokenResponse: TokenResponse = TokenResponse("","")
     val postImageResponse: MutableLiveData<String> by lazy { MutableLiveData<String>() }
+    val webServiceErrorStatus: MutableLiveData<WebServicesErrorStatus> by lazy {
+        MutableLiveData<WebServicesErrorStatus>(WebServicesErrorStatus.NOERROR)
+    }
+
 
     fun getAccessToken(applicationContext: Context) {
         val jsonData = HashMap<String, String>()
@@ -30,12 +35,12 @@ object WebServices {
             Response.Listener {
                 tokenResponse.accessToken = it.getString("access_token")
                 tokenResponse.refreshToken = it.getString("refresh_token")
-                Log.d(
-                    "Access Token Response", "AccessToken Response: ${tokenResponse.accessToken}, " +
-                            "Refresh token: ${tokenResponse.refreshToken}"
-                )
+
+                webServiceErrorStatus.value = WebServicesErrorStatus.NOERROR
             },
-            Response.ErrorListener { Log.d("Access Token Response: ", "$it") }
+            Response.ErrorListener {
+                webServiceErrorStatus.value = WebServicesErrorStatus.CONNECTIONERROR
+            }
         ) {}
         ServerConnector.getInstance(applicationContext).addToRequestQueue(accessTokenRequest)
     }
@@ -44,11 +49,17 @@ object WebServices {
         val imagePostRequest = object : ImagePostRequest(
             Method.POST, UrlAddresses.PHOTO,
             Response.Listener {
-                Log.d("Response", "response is: ${String(it.data)}")
+
                 postImageResponse.value = JSONObject(String(it.data)).getString("fen")
+                webServiceErrorStatus.value = WebServicesErrorStatus.NOERROR
             },
-            Response.ErrorListener {
-                Log.d("UploadImageResponse", "$it")
+            Response.ErrorListener { error ->
+                if (error.networkResponse == TimeoutError().networkResponse){
+                    webServiceErrorStatus.value = WebServicesErrorStatus.TIMEOUTERROR
+                }
+                else{
+                    webServiceErrorStatus.value = WebServicesErrorStatus.PHOTOERROR
+                }
             }
         ) {
             override fun getHeaders(): MutableMap<String, String> {
@@ -67,15 +78,17 @@ object WebServices {
         }
         imagePostRequest.retryPolicy = object : RetryPolicy {
             override fun getCurrentTimeout(): Int {
-                return 300000
+
+                return 120000
             }
 
             override fun getCurrentRetryCount(): Int {
-                return 300000
+                return 120000
             }
 
             @Throws(VolleyError::class)
-            override fun retry(error: VolleyError) {
+            override fun retry(error: VolleyError)  {
+                throw TimeoutError()
             }
         }
         ServerConnector.getInstance(applicationContext).addToRequestQueue(imagePostRequest)
